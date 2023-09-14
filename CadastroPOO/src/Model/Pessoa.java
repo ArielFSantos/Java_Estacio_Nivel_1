@@ -3,8 +3,8 @@ package model;
 import java.io.Serializable;
 
 public class Pessoa implements Serializable {
-    private int id;
-    private String nome;
+    int id;
+    String nome;
 
 
     public Pessoa() {}
