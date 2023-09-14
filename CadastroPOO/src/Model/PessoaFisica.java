@@ -3,10 +3,12 @@ package model;
 import java.io.Serializable;
 
 public class PessoaFisica extends Pessoa implements Serializable {
+    
     private String cpf;
     private int idade;
 
     public PessoaFisica(String nome, String cpf, int idade) {
+        
         this.nome = nome;
         this.cpf = cpf;
         this.idade = idade;
@@ -36,6 +38,10 @@ public class PessoaFisica extends Pessoa implements Serializable {
     }
 
     public void setId(int idAlterar) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    boolean getId() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

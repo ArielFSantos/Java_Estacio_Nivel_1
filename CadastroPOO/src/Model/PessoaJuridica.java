@@ -6,17 +6,11 @@ public class PessoaJuridica extends Pessoa implements Serializable {
     private String cnpj;
 
 
-
-
-    public PessoaJuridica(int id, String nome, String cnpj) {
-        super(id, nome);
+    public PessoaJuridica(String nome, String cnpj) {
+        this.nome = nome;
         this.cnpj = cnpj;
     }
-
-    public PessoaJuridica(String nome, String cnpj) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
+    
     @Override
     public void exibir() {
         super.exibir();
