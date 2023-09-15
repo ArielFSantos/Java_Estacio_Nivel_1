@@ -17,6 +17,7 @@ public class CadastroPOO {
             
             int opcao;
             do {
+                
                 System.out.println("Escolha uma opção:");
                 System.out.println("1 - Incluir");
                 System.out.println("2 - Alterar");

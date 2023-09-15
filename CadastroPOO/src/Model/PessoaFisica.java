@@ -44,6 +44,6 @@ public class PessoaFisica extends Pessoa implements Serializable {
 
     public int getId() {
         return id;
-    }
+}
 
 }
