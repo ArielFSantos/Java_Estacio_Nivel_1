@@ -3,10 +3,12 @@ package model;
 import java.io.Serializable;
 
 public class PessoaJuridica extends Pessoa implements Serializable {
+    private static int proximoId = 1; 
     private String cnpj;
 
 
     public PessoaJuridica(String nome, String cnpj) {
+        this.id = proximoId++;
         this.nome = nome;
         this.cnpj = cnpj;
     }
@@ -17,11 +19,11 @@ public class PessoaJuridica extends Pessoa implements Serializable {
         System.out.println("CNPJ: " + cnpj);
     }
 
-    int getId() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
     public void setId(int idAlterar) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+           this.id = idAlterar;
+    } 
+    
+    int getId() {
+        return id;
+    }   
 }

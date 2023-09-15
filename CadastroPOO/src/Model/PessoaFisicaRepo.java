@@ -26,13 +26,13 @@ public class PessoaFisicaRepo {
     }
 
 
-    public PessoaFisica obter(int id) {
-        for (var pessoaFisica : pessoasFisicas) {
+    public PessoaFisica obterPorId(int id) {
+        for (PessoaFisica pessoaFisica : pessoasFisicas) {
             if (pessoaFisica.getId() == id) {
                 return pessoaFisica;
             }
         }
-        return null;
+        return null; 
     }
 
     public List<PessoaFisica> obterTodos() {

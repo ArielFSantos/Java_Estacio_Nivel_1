@@ -27,21 +27,20 @@ public class CadastroPOO {
                 System.out.println("7 - Recuperar dados");
                 System.out.println("0 - Sair");
                 opcao = scanner.nextInt();
-                scanner.nextLine(); // Limpar a nova linha
+                scanner.nextLine(); 
                 
                 switch (opcao) {
                     case 1 -> {
                         System.out.println("Escolha o tipo (1 - Pessoa Física, 2 - Pessoa Jurídica):");
                         int tipo = scanner.nextInt();
-                        scanner.nextLine(); // Limpar a nova linha
+                        scanner.nextLine(); 
                         switch (tipo) {
                             case 1 -> {
-                                // Incluir Pessoa Física
                                 PessoaFisica pessoaFisica = lerDadosPessoaFisica(scanner);
                                 pessoaFisicaRepo.inserir(pessoaFisica);
                         }
                             case 2 -> {
-                                // Incluir Pessoa Jurídica
+                              
                                 PessoaJuridica pessoaJuridica = lerDadosPessoaJuridica(scanner);
                                 pessoaJuridicaRepo.inserir(pessoaJuridica);
                         }
@@ -52,49 +51,60 @@ public class CadastroPOO {
                     case 2 -> {
                         System.out.println("Escolha o tipo (1 - Pessoa Física, 2 - Pessoa Jurídica):");
                         int tipoAlterar = scanner.nextInt();
-                        scanner.nextLine(); // Limpar a nova linha
+                        scanner.nextLine(); 
                     switch (tipoAlterar) {
                         case 1 ->                             {
-                                // Alterar Pessoa Física
+                               
                                 System.out.println("Informe o ID da Pessoa Física que deseja alterar:");
                                 int idAlterar = scanner.nextInt();
-                                scanner.nextLine(); // Limpar a nova linha
+                                scanner.nextLine(); 
                                 PessoaFisica pessoaFisicaAlterar = lerDadosPessoaFisica(scanner);
                                 pessoaFisicaAlterar.setId(idAlterar);
                                 pessoaFisicaRepo.alterar(pessoaFisicaAlterar);
                             }
-                        case 2 ->                             {
-                                // Alterar Pessoa Jurídica
-                                System.out.println("Informe o ID da Pessoa Jurídica que deseja alterar:");
-                                int idAlterar = scanner.nextInt();
-                                scanner.nextLine(); // Limpar a nova linha
-                                PessoaJuridica pessoaJuridicaAlterar = lerDadosPessoaJuridica(scanner);
-                                pessoaJuridicaAlterar.setId(idAlterar);
-                                pessoaJuridicaRepo.alterar(pessoaJuridicaAlterar);
-                            }
+                        case 2 ->                             {                               
+                                    
+                                    System.out.println("Informe o ID da Pessoa Física que deseja alterar:");
+                                    int idAlterar = scanner.nextInt();
+                                    scanner.nextLine(); 
+
+                                    PessoaFisica pessoaFisicaExistente = pessoaFisicaRepo.obterPorId(idAlterar);
+
+                                    if (pessoaFisicaExistente != null) {
+                                       
+                                        PessoaFisica pessoaFisicaAlterar = lerDadosPessoaFisica(scanner);
+                                        pessoaFisicaAlterar.setId(idAlterar);
+                                        pessoaFisicaRepo.alterar(pessoaFisicaAlterar);
+                                    } else {
+                                        
+                                        System.out.println("Pessoa Física com o ID informado não encontrada.");
+                                    }
+                                    break;
+                                }
+
                         default -> System.out.println("Opção inválida.");
                     }
                     }
                     case 3 -> {
                         System.out.println("Escolha o tipo (1 - Pessoa Física, 2 - Pessoa Jurídica):");
                         int tipoExcluir = scanner.nextInt();
-                        scanner.nextLine(); // Limpar a nova linha
+                        scanner.nextLine(); 
                     switch (tipoExcluir) {
                         case 1:
                             {
-                                // Excluir Pessoa Física
+                                
                                 System.out.println("Informe o ID da Pessoa Física que deseja excluir:");
                                 int idExcluir = scanner.nextInt();
-                                scanner.nextLine(); // Limpar a nova linha
+                                scanner.nextLine(); 
                                 pessoaFisicaRepo.excluir(idExcluir);
                                 break;
                             }
                         case 2:
                             {
-                                // Excluir Pessoa Jurídica
+                                
                                 System.out.println("Informe o ID da Pessoa Jurídica que deseja excluir:");
                                 int idExcluir = scanner.nextInt();
-                                scanner.nextLine(); // Limpar a nova linha
+                                scanner.nextLine(); 
                                 pessoaJuridicaRepo.excluir(idExcluir);
                                 break;
                             }
@@ -106,25 +116,25 @@ public class CadastroPOO {
                     case 4 -> {
                         System.out.println("Escolha o tipo (1 - Pessoa Física, 2 - Pessoa Jurídica):");
                         int tipoExibir = scanner.nextInt();
-                        scanner.nextLine(); // Limpar a nova linha
+                        scanner.nextLine();
                         
                         if (tipoExibir == 1) {
-                            // Exibir Pessoa Física pelo ID
+                            
                             System.out.println("Informe o ID da Pessoa Física que deseja exibir:");
                             int idExibir = scanner.nextInt();
-                            scanner.nextLine(); // Limpar a nova linha
+                            scanner.nextLine(); 
                             
-                            PessoaFisica pessoaFisicaExibir = pessoaFisicaRepo.obter(idExibir);
+                            PessoaFisica pessoaFisicaExibir = pessoaFisicaRepo.obterPorId(idExibir);
                             if (pessoaFisicaExibir != null) {
                                 pessoaFisicaExibir.exibir();
                             } else {
                                 System.out.println("Pessoa Física não encontrada.");
                             }
                         } else if (tipoExibir == 2) {
-                            // Exibir Pessoa Jurídica pelo ID
+                            
                             System.out.println("Informe o ID da Pessoa Jurídica que deseja exibir:");
                             int idExibir = scanner.nextInt();
-                            scanner.nextLine(); // Limpar a nova linha
+                            scanner.nextLine(); 
                             
                             PessoaJuridica pessoaJuridicaExibir = pessoaJuridicaRepo.obter(idExibir);
                             if (pessoaJuridicaExibir != null) {
@@ -139,10 +149,10 @@ public class CadastroPOO {
                     case 5 -> {
                         System.out.println("Escolha o tipo (1 - Pessoa Física, 2 - Pessoa Jurídica):");
                         int tipoExibirTodos = scanner.nextInt();
-                        scanner.nextLine(); // Limpar a nova linha
+                        scanner.nextLine(); 
                     switch (tipoExibirTodos) {
                         case 1 -> {
-                            // Exibir todas as Pessoas Físicas
+                            
                             List<PessoaFisica> todasPessoasFisicas = pessoaFisicaRepo.obterTodos();
                             for (PessoaFisica pf : todasPessoasFisicas) {
                                 pf.exibir();
@@ -150,7 +160,6 @@ public class CadastroPOO {
                             }
                         }
                         case 2 -> {
-                            // Exibir todas as Pessoas Jurídicas
                             List<PessoaJuridica> todasPessoasJuridicas = pessoaJuridicaRepo.obterTodos();
                             for (PessoaJuridica pj : todasPessoasJuridicas) {
                                 pj.exibir();
@@ -162,7 +171,6 @@ public class CadastroPOO {
                     }
                     case 6 -> {
                         try {
-                            // Salvar dados
                             pessoaFisicaRepo.persistir(prefixoArquivos + ".fisica.bin");
                             pessoaJuridicaRepo.persistir(prefixoArquivos + ".juridica.bin");
                             System.out.println("Dados salvos com sucesso.");
@@ -172,7 +180,6 @@ public class CadastroPOO {
                     }
                     case 7 -> {
                         try {
-                            // Recuperar dados
                             pessoaFisicaRepo.recuperar(prefixoArquivos + ".fisica.bin");
                             pessoaJuridicaRepo.recuperar(prefixoArquivos + ".juridica.bin");
                             System.out.println("Dados recuperados com sucesso.");
@@ -198,8 +205,7 @@ public class CadastroPOO {
     int idade = scanner.nextInt();
     
     scanner.nextLine();
-        // Crie um objeto PessoaFisica com os dados lidos
-        // Limpar a nova linha
+        
     return new PessoaFisica(nome, cpf, idade);
 }
 
@@ -211,7 +217,7 @@ public class CadastroPOO {
     System.out.println("Digite o CNPJ da Pessoa Jurídica:");
     String cnpj = scanner.nextLine();
 
-    // Crie um objeto PessoaJuridica com os dados lidos
+    
     PessoaJuridica pessoaJuridica = new PessoaJuridica(nome, cnpj);
 
     return pessoaJuridica;

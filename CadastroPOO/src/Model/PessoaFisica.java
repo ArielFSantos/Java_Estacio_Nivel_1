@@ -9,6 +9,7 @@ public class PessoaFisica extends Pessoa implements Serializable {
 
     public PessoaFisica( String nome, String cpf, int idade) {
         this.id = proximoId++;
+        this.nome = nome;
         this.cpf = cpf;
         this.idade = idade;
         
@@ -41,7 +42,8 @@ public class PessoaFisica extends Pessoa implements Serializable {
            this.id = idAlterar;
     }    
 
-    int getId() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public int getId() {
+        return id;
     }
+
 }
