@@ -156,7 +156,7 @@ public class CadastroPOO {
                         default -> System.out.println("Opção inválida.");
                     }
                     }
-                    case 6:
+                    case 6 -> {
                             System.out.println("Digite o prefixo para os arquivos (por exemplo, 'cadastro'):");
                             String prefixoSalvar = scanner.nextLine();
 
@@ -168,8 +168,8 @@ public class CadastroPOO {
                                 System.out.println("Erro ao salvar os dados: " + e.getMessage());
                             }
                             break;
-
-                    case 7:
+                    }
+                    case 7 -> {
                             System.out.println("Digite o prefixo para os arquivos (por exemplo, 'cadastro'):");
                             String prefixoRecuperar = scanner.nextLine();
 
@@ -179,8 +179,8 @@ public class CadastroPOO {
                                 System.out.println("Dados recuperados com sucesso.");
                             } catch (IOException | ClassNotFoundException e) {
                                 System.out.println("Erro ao recuperar os dados: " + e.getMessage());
-                            }
-                            break;
+                            }break;
+                    }
 
                     case 0 -> System.out.println("Saindo...");
                     default -> System.out.println("Opção inválida.");
