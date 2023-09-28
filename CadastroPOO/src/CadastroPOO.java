@@ -64,23 +64,12 @@ public class CadastroPOO {
                                 pessoaFisicaRepo.alterar(pessoaFisicaAlterar);
                             }
                         case 2 ->                             {                               
-                                    
-                                    System.out.println("Informe o ID da Pessoa Física que deseja alterar:");
-                                    int idAlterar = scanner.nextInt();
-                                    scanner.nextLine(); 
-
-                                    PessoaFisica pessoaFisicaExistente = pessoaFisicaRepo.obterPorId(idAlterar);
-
-                                    if (pessoaFisicaExistente != null) {
-                                       
-                                        PessoaFisica pessoaFisicaAlterar = lerDadosPessoaFisica(scanner);
-                                        pessoaFisicaAlterar.setId(idAlterar);
-                                        pessoaFisicaRepo.alterar(pessoaFisicaAlterar);
-                                    } else {
-                                        
-                                        System.out.println("Pessoa Física com o ID informado não encontrada.");
-                                    }
-                                    break;
+                                   System.out.println("Informe o ID da Pessoa Juridica que deseja alterar:");
+                                int idAlterar = scanner.nextInt();
+                                scanner.nextLine(); 
+                                PessoaJuridica pessoaJuridicaAlterar = lerDadosPessoaJuridica(scanner);
+                                pessoaJuridicaAlterar.setId(idAlterar);
+                                pessoaJuridicaRepo.alterar(pessoaJuridicaAlterar);
                                 }
 
                         default -> System.out.println("Opção inválida.");
@@ -119,33 +108,29 @@ public class CadastroPOO {
                         int tipoExibir = scanner.nextInt();
                         scanner.nextLine();
                         
-                        if (tipoExibir == 1) {
-                            
-                            System.out.println("Informe o ID da Pessoa Física que deseja exibir:");
-                            int idExibir = scanner.nextInt();
-                            scanner.nextLine(); 
-                            
-                            PessoaFisica pessoaFisicaExibir = pessoaFisicaRepo.obterPorId(idExibir);
-                            if (pessoaFisicaExibir != null) {
-                                pessoaFisicaExibir.exibir();
-                            } else {
-                                System.out.println("Pessoa Física não encontrada.");
-                            }
-                        } else if (tipoExibir == 2) {
-                            
-                            System.out.println("Informe o ID da Pessoa Jurídica que deseja exibir:");
-                            int idExibir = scanner.nextInt();
-                            scanner.nextLine(); 
-                            
-                            PessoaJuridica pessoaJuridicaExibir = pessoaJuridicaRepo.obter(idExibir);
-                            if (pessoaJuridicaExibir != null) {
-                                pessoaJuridicaExibir.exibir();
-                            } else {
-                                System.out.println("Pessoa Jurídica não encontrada.");
-                            }
-                        } else {
-                            System.out.println("Opção inválida.");
-                        }
+                    switch (tipoExibir) {
+                        case 1 ->                             {
+                                System.out.println("Informe o ID da Pessoa Física que deseja exibir:");
+                                int idExibir = scanner.nextInt();
+                                scanner.nextLine();
+                                PessoaFisica pessoaFisicaExibir = pessoaFisicaRepo.obterPorId(idExibir);
+                                if (pessoaFisicaExibir != null) {
+                                    pessoaFisicaExibir.exibir();
+                                } else {
+                                    System.out.println("Pessoa Física não encontrada.");
+                                }                              }
+                        case 2 ->                             {
+                                System.out.println("Informe o ID da Pessoa Jurídica que deseja exibir:");
+                                int idExibir = scanner.nextInt();
+                                scanner.nextLine();
+                                PessoaJuridica pessoaJuridicaExibir = pessoaJuridicaRepo.obterPorId(idExibir);
+                                if (pessoaJuridicaExibir != null) {
+                                    pessoaJuridicaExibir.exibir();
+                                } else {
+                                    System.out.println("Pessoa Jurídica não encontrada.");
+                                }                              }
+                        default -> System.out.println("Opção inválida.");
+                    }
                     }
                     case 5 -> {
                         System.out.println("Escolha o tipo (1 - Pessoa Física, 2 - Pessoa Jurídica):");

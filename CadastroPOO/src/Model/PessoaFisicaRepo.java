@@ -25,7 +25,6 @@ public class PessoaFisicaRepo {
         pessoasFisicas.removeIf(p -> p.getId() == id);
     }
 
-
     public PessoaFisica obterPorId(int id) {
         for (PessoaFisica pessoaFisica : pessoasFisicas) {
             if (pessoaFisica.getId() == id) {
