@@ -156,24 +156,32 @@ public class CadastroPOO {
                         default -> System.out.println("Opção inválida.");
                     }
                     }
-                    case 6 -> {
-                        try {
-                            pessoaFisicaRepo.persistir(prefixoArquivos + ".fisica.bin");
-                            pessoaJuridicaRepo.persistir(prefixoArquivos + ".juridica.bin");
-                            System.out.println("Dados salvos com sucesso.");
-                        } catch (IOException e) {
-                            System.out.println("Erro ao salvar os dados: " + e.getMessage());
-                        }
-                    }
-                    case 7 -> {
-                        try {
-                            pessoaFisicaRepo.recuperar(prefixoArquivos + ".fisica.bin");
-                            pessoaJuridicaRepo.recuperar(prefixoArquivos + ".juridica.bin");
-                            System.out.println("Dados recuperados com sucesso.");
-                        } catch (IOException | ClassNotFoundException e) {
-                            System.out.println("Erro ao recuperar os dados: " + e.getMessage());
-                        }
-                    }
+                    case 6:
+                            System.out.println("Digite o prefixo para os arquivos (por exemplo, 'cadastro'):");
+                            String prefixoSalvar = scanner.nextLine();
+
+                            try {
+                                pessoaFisicaRepo.persistir(prefixoSalvar + ".fisica.bin");
+                                pessoaJuridicaRepo.persistir(prefixoSalvar + ".juridica.bin");
+                                System.out.println("Dados salvos com sucesso.");
+                            } catch (IOException e) {
+                                System.out.println("Erro ao salvar os dados: " + e.getMessage());
+                            }
+                            break;
+
+                    case 7:
+                            System.out.println("Digite o prefixo para os arquivos (por exemplo, 'cadastro'):");
+                            String prefixoRecuperar = scanner.nextLine();
+
+                            try {
+                                pessoaFisicaRepo.recuperar(prefixoRecuperar + ".fisica.bin");
+                                pessoaJuridicaRepo.recuperar(prefixoRecuperar + ".juridica.bin");
+                                System.out.println("Dados recuperados com sucesso.");
+                            } catch (IOException | ClassNotFoundException e) {
+                                System.out.println("Erro ao recuperar os dados: " + e.getMessage());
+                            }
+                            break;
+
                     case 0 -> System.out.println("Saindo...");
                     default -> System.out.println("Opção inválida.");
                 }
