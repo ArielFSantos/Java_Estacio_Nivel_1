@@ -17,7 +17,7 @@ public class CadastroPOO {
             
             int opcao;
             do {
-                
+                System.out.println("======================");
                 System.out.println("Escolha uma opção:");
                 System.out.println("1 - Incluir");
                 System.out.println("2 - Alterar");
@@ -27,6 +27,7 @@ public class CadastroPOO {
                 System.out.println("6 - Salvar dados");
                 System.out.println("7 - Recuperar dados");
                 System.out.println("0 - Sair");
+                System.out.println("======================");
                 opcao = scanner.nextInt();
                 scanner.nextLine(); 
                 
