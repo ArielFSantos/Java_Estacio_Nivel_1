@@ -18,7 +18,7 @@ public class CadastroPOO {
             int opcao;
             do {
                 System.out.println("======================");
-                System.out.println("Escolha uma opção:");
+                System.out.println("Escolha uma Opcao:");
                 System.out.println("1 - Incluir");
                 System.out.println("2 - Alterar");
                 System.out.println("3 - Excluir");
@@ -33,7 +33,7 @@ public class CadastroPOO {
                 
                 switch (opcao) {
                     case 1 -> {
-                        System.out.println("Escolha o tipo (1 - Pessoa Física, 2 - Pessoa Jurídica):");
+                        System.out.println("Escolha o tipo (1 - Pessoa Fisica, 2 - Pessoa Juridica):");
                         int tipo = scanner.nextInt();
                         scanner.nextLine(); 
                         switch (tipo) {
@@ -51,13 +51,13 @@ public class CadastroPOO {
                     }
 
                     case 2 -> {
-                        System.out.println("Escolha o tipo (1 - Pessoa Física, 2 - Pessoa Jurídica):");
+                        System.out.println("Escolha o tipo (1 - Pessoa Fisica, 2 - Pessoa Juridica):");
                         int tipoAlterar = scanner.nextInt();
                         scanner.nextLine(); 
                     switch (tipoAlterar) {
                         case 1 ->                             {
                                
-                                System.out.println("Informe o ID da Pessoa Física que deseja alterar:");
+                                System.out.println("Informe o ID da Pessoa Fisica que deseja alterar:");
                                 int idAlterar = scanner.nextInt();
                                 scanner.nextLine(); 
                                 PessoaFisica pessoaFisicaAlterar = lerDadosPessoaFisica(scanner);
@@ -77,14 +77,14 @@ public class CadastroPOO {
                     }
                     }
                     case 3 -> {
-                        System.out.println("Escolha o tipo (1 - Pessoa Física, 2 - Pessoa Jurídica):");
+                        System.out.println("Escolha o tipo (1 - Pessoa Fisica, 2 - Pessoa Juridica):");
                         int tipoExcluir = scanner.nextInt();
                         scanner.nextLine(); 
                     switch (tipoExcluir) {
                         case 1:
                             {
                                 
-                                System.out.println("Informe o ID da Pessoa Física que deseja excluir:");
+                                System.out.println("Informe o ID da Pessoa Fisica que deseja excluir:");
                                 int idExcluir = scanner.nextInt();
                                 scanner.nextLine(); 
                                 pessoaFisicaRepo.excluir(idExcluir);
@@ -93,7 +93,7 @@ public class CadastroPOO {
                         case 2:
                             {
                                 
-                                System.out.println("Informe o ID da Pessoa Jurídica que deseja excluir:");
+                                System.out.println("Informe o ID da Pessoa Juridica que deseja excluir:");
                                 int idExcluir = scanner.nextInt();
                                 scanner.nextLine(); 
                                 pessoaJuridicaRepo.excluir(idExcluir);
@@ -105,36 +105,36 @@ public class CadastroPOO {
                     }
                     }
                     case 4 -> {
-                        System.out.println("Escolha o tipo (1 - Pessoa Física, 2 - Pessoa Jurídica):");
+                        System.out.println("Escolha o tipo (1 - Pessoa Fisica, 2 - Pessoa Juridica):");
                         int tipoExibir = scanner.nextInt();
                         scanner.nextLine();
                         
                     switch (tipoExibir) {
                         case 1 ->                             {
-                                System.out.println("Informe o ID da Pessoa Física que deseja exibir:");
+                                System.out.println("Informe o ID da Pessoa Fisica que deseja exibir:");
                                 int idExibir = scanner.nextInt();
                                 scanner.nextLine();
                                 PessoaFisica pessoaFisicaExibir = pessoaFisicaRepo.obterPorId(idExibir);
                                 if (pessoaFisicaExibir != null) {
                                     pessoaFisicaExibir.exibir();
                                 } else {
-                                    System.out.println("Pessoa Física não encontrada.");
+                                    System.out.println("Pessoa Fisica não encontrada.");
                                 }                              }
                         case 2 ->                             {
-                                System.out.println("Informe o ID da Pessoa Jurídica que deseja exibir:");
+                                System.out.println("Informe o ID da Pessoa Juridica que deseja exibir:");
                                 int idExibir = scanner.nextInt();
                                 scanner.nextLine();
                                 PessoaJuridica pessoaJuridicaExibir = pessoaJuridicaRepo.obterPorId(idExibir);
                                 if (pessoaJuridicaExibir != null) {
                                     pessoaJuridicaExibir.exibir();
                                 } else {
-                                    System.out.println("Pessoa Jurídica não encontrada.");
+                                    System.out.println("Pessoa Juridica não encontrada.");
                                 }                              }
                         default -> System.out.println("Opção inválida.");
                     }
                     }
                     case 5 -> {
-                        System.out.println("Escolha o tipo (1 - Pessoa Física, 2 - Pessoa Jurídica):");
+                        System.out.println("Escolha o tipo (1 - Pessoa Fisica, 2 - Pessoa Juridica):");
                         int tipoExibirTodos = scanner.nextInt();
                         scanner.nextLine(); 
                     switch (tipoExibirTodos) {
@@ -190,13 +190,13 @@ public class CadastroPOO {
     }
 
     private static PessoaFisica lerDadosPessoaFisica(Scanner scanner) {
-    System.out.println("Digite o nome da Pessoa Física:");
+    System.out.println("Digite o nome da Pessoa Fisica:");
     String nome = scanner.nextLine();
 
-    System.out.println("Digite o CPF da Pessoa Física:");
+    System.out.println("Digite o CPF da Pessoa Fisica:");
     String cpf = scanner.nextLine();
 
-    System.out.println("Digite a idade da Pessoa Física:");
+    System.out.println("Digite a idade da Pessoa Fisica:");
     int idade = scanner.nextInt();
     
     scanner.nextLine();
@@ -206,10 +206,10 @@ public class CadastroPOO {
 
 
     private static PessoaJuridica lerDadosPessoaJuridica(Scanner scanner) {
-    System.out.println("Digite o nome da Pessoa Jurídica:");
+    System.out.println("Digite o nome da Pessoa Juridica:");
     String nome = scanner.nextLine();
 
-    System.out.println("Digite o CNPJ da Pessoa Jurídica:");
+    System.out.println("Digite o CNPJ da Pessoa Juridica:");
     String cnpj = scanner.nextLine();
 
     
